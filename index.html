@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/library/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="./src/js/library/jquery-3.2.1.slim.min.js"></script>
+  <script src="./src/js/library/popper.min.js"></script>
+  <script src="./src/js/library/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./src/css/style.css">
+  <title>Pen House</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand logo-web" href="#" id="logo">
+          <img src="./src/access/img/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active" data-room="room1">
+              <a class="nav-link translation" href="#" data-translate-vi="Phòng 1" data-translate-en="Room 1">Phòng
+                1</a>
+            </li>
+            <li class="nav-item" data-room="room2">
+              <a class="nav-link translation" href="#" data-translate-vi="Phòng 2" data-translate-en="Room 2">Phòng
+                2</a>
+            </li>
+            <li class="nav-item" data-room="room3">
+              <a class="nav-link translation" href="#" data-translate-vi="Phòng 3" data-translate-en="Room 3">Phòng
+                3</a>
+            </li>
+            <li class="nav-item" data-room="room4">
+              <a class="nav-link translation" href="#" data-translate-vi="Phòng 4" data-translate-en="Room 4">Phòng
+                4</a>
+            </li>
+            <li class="nav-item" data-room="roomInfor">
+              <a class="nav-link translation" href="#" data-translate-vi="Thông tin" data-translate-en="About Us">Thông
+                tin</a>
+            </li>
+            <li class="dropdown">
+              <p class="nav-link dropdown-toggle multi-languague" href="#" id="navbarDropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="text-languague translation" data-translate-vi="Tiếng Việt"
+                  data-translate-en="English">Tiếng Việt</span>
+              </p>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-item icon-trans" data-languague="vi">
+                  <img src="./src/access/img/VietNam.png" />
+                  <span>VietNamese</span>
+                </div>
+                <div class="dropdown-item icon-trans" data-languague="en">
+                  <img src="./src/access/img/Us.png" />
+                  <span>English</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <introdution>
+        <div class="introduction">
+          <!-- <video id="video">
+            <source src="/src/access/video/intro.mp4" type="video/mp4">
+          </video> -->
+          <div class="btn-intro">
+            <button>
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          </canvas>
+        </div>
+    </introdution>
+
+    <div id="menuLeft">
+      <div class="buttonShowMenu">
+        <i class="fas fa-angle-right"></i>
+      </div>
+      <ul class="menuMain">
+        <div id="room1-menu" class="menuitem-box active">
+          <li class="menuMain-item translation" data-name="uncle" data-translate-vi="Tượng Bác"
+            data-translate-en="Tượng Uncle">Tượng Bác</li>
+          <li class="menuMain-item translation" data-name="typewiter" data-translate-vi="Máy đánh chữ"
+            data-translate-en="Type writer machine">Máy Đánh chữ</li>
+        </div>
+        <div id="room2-menu" class="menuitem-box">
+          <li class="menuMain-item translation" data-name="uncle" data-translate-vi="Tượng Bác 1"
+            data-translate-en="Tượng Uncle 1">Tượng Bác 1</li>
+          <li class="menuMain-item translation" data-name="typewiter" data-translate-vi="Máy đánh chữ 1"
+            data-translate-en="Type writer machine 1">Máy Đánh chữ 1</li>
+        </div>
+      </ul>
+    </div>
+    <div class="room">
+      <div class="roombox">
+        <div class="about">
+          <canvas class="webgl"></canvas>
+        </div>
+        <div class="room-item show room1" id="room1">
+          <iframe width="853" height="480" src="https://my.matterport.com/show/?m=RejxpnzHtUt&play=1" allowfullscreen
+            allow="xr-spatial-tracking"></iframe>
+          <video id="video" class="video-mc" autoplay> 
+            <source src="/src/access/video/123.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="room-item room2" id="room2">
+          <iframe width="853" height="480" src="https://my.matterport.com/show/?m=EQaFW2fwgPU&play=1" allowfullscreen
+            allow="xr-spatial-tracking"></iframe>
+            <video id="video" class="video-mc"> 
+              <source src="/src/access/video/123.webm" type="video/webm">
+            </video>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="popup" class="">
+      <div class="popupmain">
+        <button class="buttonClose">x</button>
+        <div class="contentPopup">
+          <div class="descContentPopup">
+
+          </div>
+          <div class="module3dLoad">
+            <p class="module3dLoad-title">Giới thiệu về bác Hồ</p>
+            <div class="containerModule">
+              <canvas class="moduleThumb"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+
+  </footer>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./data.js"></script>
+  <script type="module" src="./src/js/index.js"></script>
+  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/Menu.js"></script>
+</body>
+
+</html>
