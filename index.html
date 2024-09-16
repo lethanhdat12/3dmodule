@@ -17,33 +17,13 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand logo-web" href="#" id="logo">
           <img src="./src/access/img/logo.png" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item active" data-room="room1">
-              <a class="nav-link translation" href="#" data-translate-vi="Phòng 1" data-translate-en="Room 1">Phòng
-                1</a>
-            </li>
-            <li class="nav-item" data-room="room2">
-              <a class="nav-link translation" href="#" data-translate-vi="Phòng 2" data-translate-en="Room 2">Phòng
-                2</a>
-            </li>
-            <li class="nav-item" data-room="room3">
-              <a class="nav-link translation" href="#" data-translate-vi="Phòng 3" data-translate-en="Room 3">Phòng
-                3</a>
-            </li>
-            <li class="nav-item" data-room="room4">
-              <a class="nav-link translation" href="#" data-translate-vi="Phòng 4" data-translate-en="Room 4">Phòng
-                4</a>
-            </li>
             <li class="nav-item" data-room="roomInfor">
               <a class="nav-link translation" href="#" data-translate-vi="Thông tin" data-translate-en="About Us">Thông
                 tin</a>
@@ -68,21 +48,43 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
+    <div id="header">
+      <div class="container-header">
+        <a class="navbar-brand logo-web" href="#" id="logo">
+          <img src="./src/access/img/logo.png" alt="">
+        </a>
+        <div class="header-main">
+            <h1>THAM QUAN BẢO TÀNG THÀNH PHỐ HỒ CHÍ MINH - CHI NHÁNH THÀNH PHỐ HỒ CHÍ MINH</h1>
+            <div class="header-mute">
+              <div class="volume">
+                <span class="volume-icon">
+                <i class="fa-solid fa-volume-high"></i>
+                </span>
+              </div>
+              <div class="translation">
+                <img src="./src/access/img/VietNam.png" />
+              </div>
+            </div>
+            <div class="header-about">
+              <p>Nhóm thực hiện</p>
+            </div>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
     <introdution>
-        <div class="introduction">
-          <!-- <video id="video">
-            <source src="/src/access/video/intro.mp4" type="video/mp4">
-          </video> -->
-          <div class="btn-intro">
-            <button>
-              <i class="fa-solid fa-play"></i>
-            </button>
-          </div>
-          </canvas>
+      <div class="introduction">
+        <div class="btn-intro">
+          <button>
+            <i class="fa-solid fa-play"></i>
+          </button>
         </div>
+      </div>
+      <video id="videoIntro">
+        <source src="/src/access/video/HCMIntro.mp4" type="video/mp4">
+      </video>
     </introdution>
 
     <div id="menuLeft">
@@ -102,7 +104,7 @@
           <li class="menuMain-item translation" data-name="typewiter" data-translate-vi="Máy đánh chữ 1"
             data-translate-en="Type writer machine 1">Máy Đánh chữ 1</li>
         </div>
-      </ul>
+      </ul> 
     </div>
     <div class="room">
       <div class="roombox">
@@ -112,16 +114,12 @@
         <div class="room-item show room1" id="room1">
           <iframe width="853" height="480" src="https://my.matterport.com/show/?m=RejxpnzHtUt&play=1" allowfullscreen
             allow="xr-spatial-tracking"></iframe>
-          <video id="video" class="video-mc" autoplay> 
-            <source src="/src/access/video/123.webm" type="video/webm">
-          </video>
+
         </div>
         <div class="room-item room2" id="room2">
           <iframe width="853" height="480" src="https://my.matterport.com/show/?m=EQaFW2fwgPU&play=1" allowfullscreen
             allow="xr-spatial-tracking"></iframe>
-            <video id="video" class="video-mc"> 
-              <source src="/src/access/video/123.webm" type="video/webm">
-            </video>
+
         </div>
       </div>
     </div>
@@ -144,9 +142,51 @@
       </div>
     </div>
 
+    <div id="menu-right" class="hidden">
+      <div class="menu-overlay"></div>
+      <div class="buttonShowMenuright">
+        <span class="arrow-open">
+          <i class="fas fa-angle-left"></i>
+        </span>
+        <span class="arrow-close">
+          <i class="fas fa-angle-right"></i>
+        </span>
+        </span>
+      </div>
+      <div class="content-mc-read">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?
+        </p>
+      </div>
+      <video id="video-mc" src="/src/access/video/123.webm" type="video/webm">
+      </video>
+    </div>
+ 
   </main>
   <footer>
-
+    <div id="menuFooter">
+      <ul class="menu-Main">
+        <li class="menu-item nav-item active" data-room="room1">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 1" data-translate-en="Room 1"></a>
+        </li>
+        <li class="menu-item nav-item" data-room="room2">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 2" data-translate-en="Room 2"></a>
+        </li>
+        <li class="menu-item nav-item" data-room="room3">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 3" data-translate-en="Room 3"></a>
+        </li>
+        <li class="menu-item nav-item" data-room="room4">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 4" data-translate-en="Room 4"></a>
+        </li>
+        <li class="menu-item nav-item" data-room="room5">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 4" data-translate-en="Room 4"></a>
+        </li>
+        <li class="menu-item nav-item" data-room="room6">
+          <a class="nav-link translation" href="#" data-translate-vi="Phòng 4" data-translate-en="Room 4"></a>
+        </li>
+      </ul>
+    </div>
   </footer>
   <script type="importmap">
     {
