@@ -7,13 +7,20 @@ const menu = document.querySelector("#menuLeft");
 const buttonClose = document.querySelector(".buttonClose");
 const btnMenu = document.querySelector(".buttonShowMenu");
 const btnIntro = document.querySelector(".btn-intro");
+const videoIntro = document.querySelector("#videoIntro")
+btnIntro.addEventListener("click", () => {
 
-btnIntro.addEventListener("click" , () => {
-    const nav1Active = document.querySelector(".nav-item.active");
-    nav1Active.click();
 
     const introdution = document.querySelector(".introduction");
     introdution.classList.add("hidden")
+
+    videoIntro.play();
+
+    videoIntro.addEventListener("ended", () => {
+        const nav1Active = document.querySelector(".nav-item.active");
+        nav1Active.click();
+        videoIntro.classList.add("hidden")
+    })
 })
 
 

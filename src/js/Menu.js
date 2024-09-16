@@ -11,11 +11,33 @@ export default class MenuHandler {
         this.handleMenuHeader();
         this.handleClosePop();
         this.handleMultiLanguague();
+        this.handleMenuMc();
+        this.handleMuteVolume();
         this.moduleLoader = new ModuleLoader();
         this.moduleLoader.createScene();
         const moduleNames = ["uncle", "typewiter"];
 
         moduleNames.forEach(i => this.moduleLoader.loadModule(i))
+
+        this.videoSrcs = {
+            "room1": "/src/access/video/123.webm",
+            "room2": "/src/access/video/123.webm",
+            "room3": "/src/access/video/123.webm",
+            "room4": "/src/access/video/123.webm",
+            "room5": "/src/access/video/123.webm",
+            "room6": "/src/access/video/123.webm"
+        }
+
+        this.srcVoidMC = {
+            "room1": `1111rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
+            "room2": `2222222rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
+            "room3": "/src/access/video/123.webm",
+            "room4": "/src/access/video/123.webm",
+            "room5": "/src/access/video/123.webm",
+            "room6": "/src/access/video/123.webm"
+        }
     }
 
     initMenu() {
@@ -48,10 +70,18 @@ export default class MenuHandler {
                 i.pause()
             })
             const roomElm = $(`.${room}`);
+            const videomc = $("#video-mc");
+
+            const btnShowMenuRight = $(".buttonShowMenuright");
+            btnShowMenuRight.click();
+
+
             setTimeout(() => {
-                let video = roomElm.querySelector("video");
-                video.classList.remove("hidden")
-                video.play();
+                const srcVideo = this.videoSrcs[room];
+                const textMc = $(".content-mc-read p");
+                textMc.innerHTML = this.srcVoidMC[room]
+                videomc.setAttribute("src", srcVideo);
+                videomc.play();
             }, 2000)
 
             const about = $(".about");
@@ -129,6 +159,46 @@ export default class MenuHandler {
         const popup = $("#popup");
         btnClose.addEventListener("click", () => {
             popup.classList.toggle("show");
+        })
+    }
+
+    handleMenuMc() {
+        const btn = $(".buttonShowMenuright");
+        const menuRight = $("#menu-right")
+        btn.addEventListener("click", () => {
+            let check  = menuRight.classList.contains("hidden")
+            const videomc = $("#video-mc");
+            const volumeIcon = $(".volume-icon");
+            if(check){
+                menuRight.classList.remove("hidden")
+                volumeIcon.classList.remove("mute")
+                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+                videomc.play();
+            }else{
+                menuRight.classList.add("hidden")
+                volumeIcon.classList.add("mute")
+                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+                videomc.pause();
+            }
+            
+           
+        })
+    }
+
+    handleMuteVolume() {
+        const btnVolume = $(".volume");
+        btnVolume.addEventListener("click", () => {
+            const videomc = $("#video-mc");
+            const volumeIcon = $(".volume-icon");
+            if (videomc.paused) {
+                videomc.play();
+                volumeIcon.classList.remove("mute")
+                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+            } else {
+                videomc.pause();
+                volumeIcon.classList.add("mute")
+                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+            }
         })
     }
 }
