@@ -20,8 +20,8 @@ export default class MenuHandler {
         moduleNames.forEach(i => this.moduleLoader.loadModule(i))
 
         this.videoSrcs = {
-            "room1": "/src/access/video/123.webm",
-            "room2": "/src/access/video/123.webm",
+            "room1": "/src/access/video/BacMienNam.webm",
+            "room2": "/src/access/video/topic1.webm",
             "room3": "/src/access/video/123.webm",
             "room4": "/src/access/video/123.webm",
             "room5": "/src/access/video/123.webm",
