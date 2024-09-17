@@ -19,7 +19,7 @@ export default class ModuleLoader {
 
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff);
+        scene.background = new THREE.Color(0x1B1B1B);
         this.scene = scene;
 
         const dirLight1 = new THREE.DirectionalLight(0xffffff, 3);
