@@ -1,7 +1,8 @@
 :root{
-    --background-color : rgb(107, 142, 35);
+    --background-color : #504f33;
     --header-height: 36px;
-    --bottom-height : 100px;
+    --bottom-height : 140px;
+    --width-popup-right : 200px
 
 }
 html,
@@ -20,18 +21,23 @@ img {
 }
 
 .logo-web {
-    /* width: 200px; */
     height: 60px;
-    background: var(--background-color);
+    background-image: url("../access/img/bglogo.svg");
     position: absolute;
     left: 0;
     top: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    z-index: 9;
 }
 
 .logo-web img {
-    width: 100%;
+    width: 100px;
     height: 100%;
     object-fit: contain;
+    margin-left: 10px;
 }
 
 .collapse.navbar-collapse {
@@ -165,7 +171,7 @@ img {
     position: relative;
     color: white;
     z-index: 1;
-    height: 220px;
+    height: 180px;
     overflow: hidden;
     font-size: 12px;
     padding: 20px 12px 12px 12px;
@@ -259,10 +265,11 @@ img {
     left: 0;
     bottom: 0;
     min-width: 150px;
-    background-color: rgba(107, 142, 35,.5);
+    background-color: var(--background-color);
     transition: 0.15s ease all;
     transform: translateX(-100%);
     height: calc(100% - var(--header-height));
+    opacity: 0.8;
 }
 
 #menuLeft.show {
@@ -278,7 +285,7 @@ img {
     position: fixed;
     left: 100%;
     bottom: 0;
-    min-width: 200px;
+    min-width: var(--width-popup-right);
     transition: 0.15s ease all;
     transform: translateX(-100%);
     height: calc(100% - var(--header-height));
@@ -304,7 +311,7 @@ img {
 }
 
 .menu-overlay{
-    opacity: 0.5;
+    opacity: 0.8;
     background-color: var(--background-color);
     position: absolute;
     top: 0;
@@ -315,7 +322,7 @@ img {
 
 .menuMain-item {
     list-style: none;
-    background-color: var(--background-color);
+    background-color: #89886b;
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -361,7 +368,7 @@ img {
 }
 
 #popup .popupmain {
-    width: 80%;
+    width: 96%;
     height: 90%;
     text-align: right;
     position: relative;
@@ -377,11 +384,12 @@ img {
 #popup .popupmain .contentPopup {
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: #1B1B1B;
     padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 #popup .popupmain .contentPopup .descContentPopup {
@@ -405,7 +413,7 @@ img {
 }
 
 #popup .popupmain .contentPopup .module3dLoad p {
-    color: red;
+    color: white;
     font-size: 20px;
     font-weight: bold;
 }
@@ -449,7 +457,7 @@ img {
 
 #menuFooter {
     width: 100%;
-    height: 100px;
+    height: var(--bottom-height);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -472,53 +480,90 @@ img {
 #menuFooter .menu-Main .menu-item {
     width: calc(100% / 6);
     height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+#menuFooter .menu-Main .menu-item .nav-link{
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    cursor: pointer;
+    transition: 0.35s ease all;
+}
+#menuFooter .menu-Main .menu-item .name-room{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(126 126 126 / 30%);
+    opacity: 0;
+}
+#menuFooter .menu-Main .menu-item .name-room p{
+    margin: 0;
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(1) {
+#menuFooter .menu-Main .menu-item:hover .nav-link{
+    transform: scale(1.2);
+}
+
+#menuFooter .menu-Main .menu-item:hover .name-room{
+    opacity: 1;
+}
+
+#menuFooter .menu-Main .menu-item:nth-child(1) .nav-link {
     background-image: url("../access/img/thumb.png");
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(2) {
+#menuFooter .menu-Main .menu-item:nth-child(2) .nav-link{
     background-image: url("../access/img/thumb.png");
 
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(3) {
+#menuFooter .menu-Main .menu-item:nth-child(3) .nav-link{
     background-image: url("../access/img/thumb.png");
 
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(4) {
+#menuFooter .menu-Main .menu-item:nth-child(4) .nav-link{
     background-image: url("../access/img/thumb.png");
 
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(5) {
+#menuFooter .menu-Main .menu-item:nth-child(5) .nav-link{
     background-image: url("../access/img/thumb.png");
 
 }
 
-#menuFooter .menu-Main .menu-item:nth-child(6) {
+#menuFooter .menu-Main .menu-item:nth-child(6) .nav-link{
     background-image: url("../access/img/thumb.png");
 
+}
+#header{
+    background-image: url("../access/img/bar.png");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .header-main{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: calc(100% - 100px);
-    float: right;
     gap: 20px;
     padding-right: 20px;
-    background-color: var(--background-color);
     color: white;
 }
 .header-main h1{
-    font-size: 10px;
+    font-size: 14px;
     text-align: center;
     margin: 0;
     flex: 1;
@@ -547,6 +592,8 @@ img {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
+    width: calc( var(--width-popup-right) - 20px) ;
+    text-align: center;
 }
 
 .volume-icon{
