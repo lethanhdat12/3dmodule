@@ -15,11 +15,12 @@ export default class MenuHandler {
         this.handleMuteVolume();
         this.moduleLoader = new ModuleLoader();
         this.moduleLoader.createScene();
-        const moduleNames = ["uncle", "typewiter"];
+        const moduleNames = dataJson.map((i) => i.name);
         this.muteState = true;
         this.mcState = true;
-        moduleNames.forEach(i => this.moduleLoader.loadModule(i))
-
+        setTimeout(() => {
+          moduleNames.forEach(i => this.moduleLoader.loadModule(i))
+        } , 150000)
         this.videoSrcs = {...videoSrcs}
 
         this.srcVoidMC = {...srcVoidMC}
@@ -71,8 +72,10 @@ export default class MenuHandler {
             }
             const about = $(".about");
             this.roomItems.forEach((i) => i.classList.add("hidden"))
-            roomElm.classList.add("show");
-            roomElm.classList.remove("hidden");
+            if(roomElm){
+                roomElm.classList.add("show");
+                roomElm.classList.remove("hidden");
+            }
             about.classList.remove("show");
 
 
