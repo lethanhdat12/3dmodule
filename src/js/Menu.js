@@ -1,6 +1,6 @@
 import { $$, $ } from "./index.js";
 import ModuleLoader from "./SceneLoader.js";
-import { dataJson } from "../../data.js";
+import { dataJson , videoSrcs , srcVoidMC } from "../../data.js";
 export default class MenuHandler {
     constructor(element) {
         this.element = element;
@@ -16,28 +16,13 @@ export default class MenuHandler {
         this.moduleLoader = new ModuleLoader();
         this.moduleLoader.createScene();
         const moduleNames = ["uncle", "typewiter"];
-
+        this.muteState = true;
+        this.mcState = true;
         moduleNames.forEach(i => this.moduleLoader.loadModule(i))
 
-        this.videoSrcs = {
-            "room1": "/src/access/video/123.webm",
-            "room2": "/src/access/video/123.webm",
-            "room3": "/src/access/video/123.webm",
-            "room4": "/src/access/video/123.webm",
-            "room5": "/src/access/video/123.webm",
-            "room6": "/src/access/video/123.webm"
-        }
+        this.videoSrcs = {...videoSrcs}
 
-        this.srcVoidMC = {
-            "room1": `1111rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
-            "room2": `2222222rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
-            "room3": "/src/access/video/123.webm",
-            "room4": "/src/access/video/123.webm",
-            "room5": "/src/access/video/123.webm",
-            "room6": "/src/access/video/123.webm"
-        }
+        this.srcVoidMC = {...srcVoidMC}
     }
 
     initMenu() {
@@ -71,19 +56,19 @@ export default class MenuHandler {
             })
             const roomElm = $(`.${room}`);
             const videomc = $("#video-mc");
+            if (this.first) {
+                const btnShowMenuRight = $(".buttonShowMenuright");
+                btnShowMenuRight.click();
+                this.first = false
+            }
 
-            const btnShowMenuRight = $(".buttonShowMenuright");
-            btnShowMenuRight.click();
-
-
-            setTimeout(() => {
-                const srcVideo = this.videoSrcs[room];
-                const textMc = $(".content-mc-read p");
-                textMc.innerHTML = this.srcVoidMC[room]
-                videomc.setAttribute("src", srcVideo);
+            const srcVideo = this.videoSrcs[room];
+            const textMc = $(".content-mc-read p");
+            textMc.innerHTML = this.srcVoidMC[room]
+            videomc.setAttribute("src", srcVideo);
+            if (this.muteState && this.mcState) {
                 videomc.play();
-            }, 2000)
-
+            }
             const about = $(".about");
             this.roomItems.forEach((i) => i.classList.add("hidden"))
             roomElm.classList.add("show");
@@ -166,22 +151,21 @@ export default class MenuHandler {
         const btn = $(".buttonShowMenuright");
         const menuRight = $("#menu-right")
         btn.addEventListener("click", () => {
-            let check  = menuRight.classList.contains("hidden")
+            let check = menuRight.classList.contains("hidden")
             const videomc = $("#video-mc");
-            const volumeIcon = $(".volume-icon");
-            if(check){
+            if (check) {
+                this.mcState = true
                 menuRight.classList.remove("hidden")
-                volumeIcon.classList.remove("mute")
-                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
-                videomc.play();
-            }else{
+                if (this.muteState) {
+                    videomc.play();
+                }
+            } else {
+                this.mcState = false;
                 menuRight.classList.add("hidden")
-                volumeIcon.classList.add("mute")
-                volumeIcon.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
-                videomc.pause();
+                if (this.muteState) {
+                    videomc.pause();
+                }
             }
-            
-           
         })
     }
 
@@ -191,13 +175,19 @@ export default class MenuHandler {
             const videomc = $("#video-mc");
             const volumeIcon = $(".volume-icon");
             if (videomc.paused) {
-                videomc.play();
+                if (this.mcState) {
+                    videomc.play();
+                }
                 volumeIcon.classList.remove("mute")
                 volumeIcon.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+                this.muteState = true;
             } else {
-                videomc.pause();
+                if (this.mcState) {
+                    videomc.pause();
+                }
                 volumeIcon.classList.add("mute")
                 volumeIcon.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+                this.muteState = false;
             }
         })
     }
