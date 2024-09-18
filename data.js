@@ -265,7 +265,8 @@ const videoSrcs = {
     "room3": "/src/access/video/topic3.webm",
     "room4": "/src/access/video/topic4.webm",
     "room5": "/src/access/video/DenThoBac.webm",
-    "room6": "/src/access/video/BacMienNam.webm"
+    "room6": "/src/access/video/BacMienNam.webm",
+    "roomabout": "/src/access/video/BacMienNam.webm"
 }
 const srcVoidMC = {
     "room1": `1111rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
@@ -275,7 +276,8 @@ const srcVoidMC = {
     "room3": "/src/access/video/123.webm",
     "room4": "/src/access/video/123.webm",
     "room5": "/src/access/video/123.webm",
-    "room6": "/src/access/video/123.webm"
+    "room6": "/src/access/video/123.webm",
+    "roomabout": "/src/access/video/BacMienNam.webm"
 }
 
 export { dataJson , videoSrcs , srcVoidMC };
