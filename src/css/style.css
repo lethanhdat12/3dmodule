@@ -268,7 +268,7 @@ img {
     background-color: var(--background-color);
     transition: 0.15s ease all;
     transform: translateX(-100%);
-    height: calc(100% - var(--header-height));
+    height: calc(100% - var(--header-height) + 10px);
     opacity: 0.8;
 }
 
@@ -288,7 +288,7 @@ img {
     min-width: var(--width-popup-right);
     transition: 0.15s ease all;
     transform: translateX(-100%);
-    height: calc(100% - var(--header-height));
+    height: calc(100% - var(--header-height) + 10px);
 }
 #menu-right .arrow-open{
     display: none;
@@ -553,6 +553,9 @@ img {
     background-image: url("../access/img/bar.png");
     background-position: center;
     background-repeat: no-repeat;
+    height: var(--header-height);
+    position: relative;
+    z-index: 10;
 }
 .header-main{
     display: flex;
