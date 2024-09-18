@@ -1,9 +1,9 @@
 const dataJson = [
     {
-        "name": "uncle",
+        "name": "tuongbacngoi",
         "detail": {
             "vi": {
-                "title": "Giới thiệu về Bác Hồ",
+                "title": "Tượng Đồng chí Nguyễn Ái Quốc",
                 "desc": `Bác Hồ là biểu tượng của Việt Nam ta,
                          chúng ta dễ thấy rằng trong hầu hết các lễ hội lớn của trường học của công đoàn,họp đảng, đoàn,…
                          Bác Hồ là biểu tượng của Việt Nam ta,
@@ -23,10 +23,10 @@ const dataJson = [
         }
     },
     {
-        "name": "typewiter",
+        "name": "nghienbut",
         "detail": {
             "vi": {
-                "title": "Máy đánh chữ của Bác Hồ",
+                "title": "Nghiên bút của Bác Hồ",
                 "desc": `Máy đánh chữ Chủ tịch Hồ Chí Minh dùng làm việc trong thời gian ở Hà Nội`,
             },
             "en": {
