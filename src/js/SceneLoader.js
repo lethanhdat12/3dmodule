@@ -10,8 +10,12 @@ export default class ModuleLoader {
     createScene() {
         const container = document.querySelector('canvas.moduleThumb');
         this.mainEle = document.querySelector(".containerModule").getBoundingClientRect();
-        this.width = this.mainEle.width || 350;
-        this.height = this.mainEle.height || 400;
+        // 96% view port - padding left - padding right
+        const defaultWidth = window.innerWidth * 0.96 - (200 * 2)
+        const defaultHeight = window.innerHeight * 0.90 - (40 * 2) - 200;
+
+        this.width = this.mainEle.width || defaultWidth;
+        this.height = this.mainEle.height || defaultHeight;
         if (!container) return;
         const camera = new THREE.PerspectiveCamera(75, this.width / this.height, 0.1, 1000);
         camera.position.z = 2
@@ -19,7 +23,7 @@ export default class ModuleLoader {
 
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x1B1B1B);
+        scene.background = new THREE.Color(0x000000);
         this.scene = scene;
 
         const dirLight1 = new THREE.DirectionalLight(0xffffff, 3);
@@ -52,7 +56,7 @@ export default class ModuleLoader {
             let box = new THREE.Box3().setFromObject(mesh);
             let center = new THREE.Vector3();
             box.getCenter(center);
-            mesh.position.sub( center );
+            mesh.position.sub(center);
             mesh.isObjectCustom = true;
             mesh.nameObject = moduleName
             this.scene.add(mesh);
