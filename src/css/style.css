@@ -19,7 +19,11 @@ img {
     width: 100%;
     height: 100%;
 }
-
+.container-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 .logo-web {
     height: 60px;
     background-image: url("../access/img/bglogo.svg");
@@ -99,7 +103,7 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    z-index: 10;
+    z-index: 12;
 }
 
 #videoIntro {
@@ -111,7 +115,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: fill;
-    z-index: 9;
+    z-index: 11;
 }
 
 #videoIntro.hidden {
@@ -370,7 +374,6 @@ img {
 #popup .popupmain {
     width: 96%;
     height: 90%;
-    text-align: right;
     position: relative;
 }
 
@@ -384,18 +387,22 @@ img {
 #popup .popupmain .contentPopup {
     width: 100%;
     height: 100%;
-    background-color: #1B1B1B;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 200px;
     color: white;
+    /* background-image: url("../access/img/bgpopup.jpg"); */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: var(--background-color);
 }
-
+.content-popup-bottom{
+    height: 200px;
+}
 #popup .popupmain .contentPopup .descContentPopup {
-    width: 40%;
-    text-align: left;
-    font-weight: 600;
+    font-size: 12px;
 }
 
 #popup .popupmain .contentPopup .module3dLoad {
@@ -407,19 +414,15 @@ img {
 
 }
 
-.containerModule {
-    min-width: 350px;
-    min-height: 400px;
-}
-
 #popup .popupmain .contentPopup .module3dLoad p {
     color: white;
     font-size: 20px;
     font-weight: bold;
+
+    color:#979797;
 }
 
 #popup .popupmain .buttonClose {
-    background-color: rgb(33 37 41 / 60%);
     border: none;
     outline: none;
     margin-bottom: 10px;
@@ -431,12 +434,20 @@ img {
     right: 4px;
     top: 4px;
     z-index: 9;
+    background-image: url("../access/img/btnClose.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .moduleThumb {
     width: 100%;
     min-height: 400px;
-    margin-left: 10px;
+}
+
+.module3dLoad-title{
+    margin-bottom: 0;
+
 }
 
 .menuitem-box {
@@ -564,6 +575,7 @@ img {
     gap: 20px;
     padding-right: 20px;
     color: white;
+    width: calc(100% - 200px);
 }
 .header-main h1{
     font-size: 14px;
