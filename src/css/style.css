@@ -403,6 +403,7 @@ img {
 }
 .content-popup-bottom{
     height: 200px;
+    overflow: hidden;
 }
 #popup .popupmain .contentPopup .descContentPopup {
     font-size: 12px;
@@ -589,6 +590,8 @@ img {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+
 .header-mute{
     display: flex;
     justify-content: center;
@@ -619,4 +622,30 @@ img {
 }
 .volume-icon.mute{
     color: red;
+}
+
+@media screen and (max-width : 844px) {
+    :root{
+        --bottom-height : 80px;
+    }
+    .header-main h1{
+        display: none;
+    }
+    #menu-right{
+        display: none;
+    }
+    .menuMain-item{
+        margin: 4px;
+        padding: 6px;
+    }
+    .moduleThumb{
+        min-height: 200px;
+        width: 100% !important;
+    }
+    .content-popup-bottom{
+        height: 150px;
+    }
+    #popup .popupmain .contentPopup{
+        padding: 40px 100px 10px 100px;
+    }
 }
