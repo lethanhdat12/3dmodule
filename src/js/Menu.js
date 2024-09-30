@@ -57,19 +57,26 @@ export default class MenuHandler {
             })
             const roomElm = $(`.${room}`);
             const videomc = $("#video-mc");
+            videomc.load()
+            const source = $("#video-mc source");
+
             if (this.first) {
                 const btnShowMenuRight = $(".buttonShowMenuright");
+                if(btnShowMenuRight){
                 btnShowMenuRight.click();
+                }
                 this.first = false
             }
 
             const srcVideo = this.videoSrcs[room];
             const textMc = $(".content-mc-read p");
             textMc.innerHTML = this.srcVoidMC[room]
-            videomc.setAttribute("src", srcVideo);
+            source.setAttribute("src", srcVideo);
+            source.setAttribute('type', 'video/webm');
             if (this.muteState && this.mcState) {
                 videomc.play();
             }
+
             const about = $(".about");
             this.roomItems.forEach((i) => i.classList.add("hidden"))
             if(roomElm){
@@ -84,6 +91,7 @@ export default class MenuHandler {
             menuItem.classList.add("active")
         }
     }
+
 
     handleEvent() {
         let length = this.menuChild.length;
