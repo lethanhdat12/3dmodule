@@ -649,3 +649,15 @@ img {
         padding: 40px 100px 10px 100px;
     }
 }
+
+@media screen and (max-width : 480px) {
+    .logo-web{
+        width: 130px;
+    }
+    .logo-web img{
+        width: 70px;
+    }
+    #popup .popupmain .contentPopup{
+        padding: 40px 10px 10px 10px;
+    }
+}

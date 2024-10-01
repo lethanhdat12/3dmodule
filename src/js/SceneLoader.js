@@ -5,14 +5,21 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 export default class ModuleLoader {
     constructor(element) {
         this.path = "src/access/module/";
+        this.loader = new GLTFLoader();
+        this.loader.setPath(this.path);
     }
 
     createScene() {
         const container = document.querySelector('canvas.moduleThumb');
         this.mainEle = document.querySelector(".containerModule").getBoundingClientRect();
+        this.paddingMobile = 10;
+        this.paddingLaptop = 200;
         // 96% view port - padding left - padding right
-        const defaultWidth = window.innerWidth * 0.96 - (200 * 2)
+        let width = window.innerWidth;
+        let paddingDevice = width < 480 ? this.paddingMobile : this.paddingMobile;
+        const defaultWidth = window.innerWidth * 0.96 - ( paddingDevice * 2)
         const defaultHeight = window.innerHeight * 0.90 - (40 * 2) - 200;
+ 
 
         this.width = this.mainEle.width || defaultWidth;
         this.height = this.mainEle.height || defaultHeight;
@@ -37,20 +44,17 @@ export default class ModuleLoader {
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(this.width, this.height);
         this.renderer = renderer;
-
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-
         return;
     }
+  
 
     render() {
         this.renderer.render(this.scene, this.camera);
     }
 
     loadModule(moduleName) {
-        const loader = new GLTFLoader();
-        loader.setPath(this.path);
-        loader.load(`${moduleName}.glb`, (gltf) => {
+        this.loader.load(`${moduleName}.glb`, (gltf) => {
             let mesh = gltf.scene.children[0];
             mesh.scale.set(3, 3, 3)
             let box = new THREE.Box3().setFromObject(mesh);

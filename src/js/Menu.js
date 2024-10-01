@@ -18,9 +18,13 @@ export default class MenuHandler {
         const moduleNames = dataJson.map((i) => i.name);
         this.muteState = true;
         this.mcState = true;
-        setTimeout(() => {
-          moduleNames.forEach(i => this.moduleLoader.loadModule(i))
-        } , 150000)
+        let i = 0;
+        let length = moduleNames.length;
+        const timeInterval = setInterval(() => {
+            if(i === length - 1) clearInterval(timeInterval);
+            this.moduleLoader.loadModule(moduleNames[i]);
+            i++;
+        } , 5000)
         this.videoSrcs = {...videoSrcs}
 
         this.srcVoidMC = {...srcVoidMC}
@@ -57,7 +61,9 @@ export default class MenuHandler {
             })
             const roomElm = $(`.${room}`);
             const videomc = $("#video-mc");
-            videomc.load()
+            // if(videomc){
+            //     videomc.load()
+            // }
             const source = $("#video-mc source");
 
             if (this.first) {
@@ -71,10 +77,10 @@ export default class MenuHandler {
             const srcVideo = this.videoSrcs[room];
             const textMc = $(".content-mc-read p");
             textMc.innerHTML = this.srcVoidMC[room]
-            source.setAttribute("src", srcVideo);
+            source.setAttribute("src", `./src/access/video/${srcVideo}`);
             source.setAttribute('type', 'video/webm');
             if (this.muteState && this.mcState) {
-                videomc.play();
+               var promises = videomc.play();
             }
 
             const about = $(".about");
@@ -88,7 +94,9 @@ export default class MenuHandler {
 
             // handle menu
             let menuItem = document.querySelector(`#${room}-menu`);
-            menuItem.classList.add("active")
+            if(menuItem){
+                menuItem.classList.add("active")
+            }
         }
     }
 
