@@ -61,9 +61,6 @@ export default class MenuHandler {
             })
             const roomElm = $(`.${room}`);
             const videomc = $("#video-mc");
-            // if(videomc){
-            //     videomc.load()
-            // }
             const source = $("#video-mc source");
 
             if (this.first) {
@@ -73,14 +70,16 @@ export default class MenuHandler {
                 }
                 this.first = false
             }
-
             const srcVideo = this.videoSrcs[room];
             const textMc = $(".content-mc-read p");
             textMc.innerHTML = this.srcVoidMC[room]
             source.setAttribute("src", `./src/access/video/${srcVideo}`);
             source.setAttribute('type', 'video/webm');
+            if(videomc){
+                videomc.load()
+            }
             if (this.muteState && this.mcState) {
-               var promises = videomc.play();
+                videomc.play();
             }
 
             const about = $(".about");
@@ -115,8 +114,10 @@ export default class MenuHandler {
                     popup.classList.toggle("show");
                     this.loadModule(moduleName);
                     let desc = dataJson.find(i => i["name"] === moduleName)
-                    descContentPopup.innerText = desc.detail[this.langguague]["desc"];
-                    module3dLoadTitle.innerText = desc.detail[this.langguague]["title"];
+                    if(desc && desc.detail){
+                        descContentPopup.innerText = desc.detail[this.langguague]["desc"];
+                        module3dLoadTitle.innerText = desc.detail[this.langguague]["title"];
+                    }
                 })
             }
         }
@@ -155,7 +156,7 @@ export default class MenuHandler {
         })
 
         if (esxited) return;
-        this.moduleLoader.loadModule(moduleName);
+        this.moduleLoader.loadModule(moduleName , true);
     }
 
     handleClosePop() {

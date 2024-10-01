@@ -16,7 +16,7 @@ export default class ModuleLoader {
         this.paddingLaptop = 200;
         // 96% view port - padding left - padding right
         let width = window.innerWidth;
-        let paddingDevice = width < 480 ? this.paddingMobile : this.paddingMobile;
+        let paddingDevice = width < 480 ? this.paddingMobile : this.paddingLaptop;
         const defaultWidth = window.innerWidth * 0.96 - ( paddingDevice * 2)
         const defaultHeight = window.innerHeight * 0.90 - (40 * 2) - 200;
  
@@ -53,7 +53,7 @@ export default class ModuleLoader {
         this.renderer.render(this.scene, this.camera);
     }
 
-    loadModule(moduleName) {
+    loadModule(moduleName , isShow) {
         this.loader.load(`${moduleName}.glb`, (gltf) => {
             let mesh = gltf.scene.children[0];
             mesh.scale.set(3, 3, 3)
@@ -62,7 +62,12 @@ export default class ModuleLoader {
             box.getCenter(center);
             mesh.position.sub(center);
             mesh.isObjectCustom = true;
-            mesh.nameObject = moduleName
+            mesh.nameObject = moduleName;
+            if(isShow){
+                mesh.visible = true;
+            }else{
+                mesh.visible = false;
+            }
             this.scene.add(mesh);
             this.animate();
         });
