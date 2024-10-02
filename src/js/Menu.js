@@ -1,6 +1,6 @@
 import { $$, $ } from "./index.js";
 import ModuleLoader from "./SceneLoader.js";
-import { dataJson , videoSrcs , srcVoidMC } from "../../data.js";
+import { dataJson, videoSrcs, srcVoidMC } from "../../data.js";
 export default class MenuHandler {
     constructor(element) {
         this.element = element;
@@ -20,14 +20,17 @@ export default class MenuHandler {
         this.mcState = true;
         let i = 0;
         let length = moduleNames.length;
-        const timeInterval = setInterval(() => {
-            if(i === length - 1) clearInterval(timeInterval);
-            this.moduleLoader.loadModule(moduleNames[i]);
-            i++;
-        } , 5000)
-        this.videoSrcs = {...videoSrcs}
+        let withMobile = window.innerWidth;
+        if (withMobile > 844) {
+            const timeInterval = setInterval(() => {
+                if (i === length - 1) clearInterval(timeInterval);
+                this.moduleLoader.loadModule(moduleNames[i]);
+                i++;
+            }, 5000)
+        }
+        this.videoSrcs = { ...videoSrcs }
 
-        this.srcVoidMC = {...srcVoidMC}
+        this.srcVoidMC = { ...srcVoidMC }
     }
 
     initMenu() {
@@ -47,7 +50,9 @@ export default class MenuHandler {
             i.addEventListener("click", (event) => this.handleClickItem(i, event))
         })
     }
-
+    handleErrorVideo(err) {
+        console.log("err play video => ", err);
+    }
     handleClickItem(elm, evt) {
         this.menuHeader.forEach(i => i.classList.remove("active"));
         $$(".menuitem-box").forEach((i) => i.classList.remove("active"))
@@ -61,30 +66,36 @@ export default class MenuHandler {
             })
             const roomElm = $(`.${room}`);
             const videomc = $("#video-mc");
-            const source = $("#video-mc source");
+            const source = $$("#video-mc source");
 
             if (this.first) {
                 const btnShowMenuRight = $(".buttonShowMenuright");
-                if(btnShowMenuRight){
-                btnShowMenuRight.click();
+                if (btnShowMenuRight) {
+                    btnShowMenuRight.click();
                 }
                 this.first = false
             }
             const srcVideo = this.videoSrcs[room];
             const textMc = $(".content-mc-read p");
             textMc.innerHTML = this.srcVoidMC[room]
-            source.setAttribute("src", `./src/access/video/${srcVideo}`);
-            source.setAttribute('type', 'video/webm');
-            if(videomc){
+            source[0].setAttribute("src", `./src/access/video/${srcVideo[0]}`);
+            source[0].setAttribute('type', 'video/webm');
+            source[1].setAttribute("src", `./src/access/video/${srcVideo[1]}`);
+            source[1].setAttribute('type', 'video/mp4');
+
+            if (videomc) {
                 videomc.load()
             }
             if (this.muteState && this.mcState) {
-                videomc.play();
+                if (videomc.hasAttribute("controls")) {
+                    videomc.removeAttribute("controls")
+                }
+                videomc.play().catch(err => this.handleErrorVideo(err));
             }
 
             const about = $(".about");
             this.roomItems.forEach((i) => i.classList.add("hidden"))
-            if(roomElm){
+            if (roomElm) {
                 roomElm.classList.add("show");
                 roomElm.classList.remove("hidden");
             }
@@ -93,7 +104,7 @@ export default class MenuHandler {
 
             // handle menu
             let menuItem = document.querySelector(`#${room}-menu`);
-            if(menuItem){
+            if (menuItem) {
                 menuItem.classList.add("active")
             }
         }
@@ -111,13 +122,16 @@ export default class MenuHandler {
             if (elm) {
                 elm.addEventListener("click", (e) => {
                     let moduleName = e.target.getAttribute("data-name");
-                    popup.classList.toggle("show");
-                    this.loadModule(moduleName);
-                    let desc = dataJson.find(i => i["name"] === moduleName)
-                    if(desc && desc.detail){
-                        descContentPopup.innerText = desc.detail[this.langguague]["desc"];
-                        module3dLoadTitle.innerText = desc.detail[this.langguague]["title"];
+                    if (moduleName) {
+                        popup.classList.toggle("show");
+                        this.loadModule(moduleName);
+                        let desc = dataJson.find(i => i["name"] === moduleName)
+                        if (desc && desc.detail) {
+                            descContentPopup.innerText = desc.detail[this.langguague]["desc"];
+                            module3dLoadTitle.innerText = desc.detail[this.langguague]["title"];
+                        }
                     }
+
                 })
             }
         }
@@ -156,7 +170,7 @@ export default class MenuHandler {
         })
 
         if (esxited) return;
-        this.moduleLoader.loadModule(moduleName , true);
+        this.moduleLoader.loadModule(moduleName, true);
     }
 
     handleClosePop() {
@@ -177,13 +191,13 @@ export default class MenuHandler {
                 this.mcState = true
                 menuRight.classList.remove("hidden")
                 if (this.muteState) {
-                    videomc.play();
+                    videomc.play().catch(err => this.handleErrorVideo(err));
                 }
             } else {
                 this.mcState = false;
                 menuRight.classList.add("hidden")
                 if (this.muteState) {
-                    videomc.pause();
+                    videomc.pause()
                 }
             }
         })
@@ -196,14 +210,14 @@ export default class MenuHandler {
             const volumeIcon = $(".volume-icon");
             if (videomc.paused) {
                 if (this.mcState) {
-                    videomc.play();
+                    videomc.play().catch(err => this.handleErrorVideo(err));
                 }
                 volumeIcon.classList.remove("mute")
                 volumeIcon.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
                 this.muteState = true;
             } else {
                 if (this.mcState) {
-                    videomc.pause();
+                    videomc.pause()
                 }
                 volumeIcon.classList.add("mute")
                 volumeIcon.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`

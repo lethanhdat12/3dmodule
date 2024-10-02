@@ -260,24 +260,26 @@ const dataJson = [
 ]
 
 const videoSrcs = {
-    "room1": "topic1.webm",
-    "room2": "topic2.webm",
-    "room3": "topic3.webm",
-    "room4": "topic4.webm",
-    "room5": "DenThoBac.webm",
-    "room6": "BacMienNam.webm",
-    "roomabout": "BacMienNam.webm"
+    "room0": ["BacMienNam.webm" , "BacMienNam.mp4"],
+    "room1": ["topic1.webm" , "topic1.mp4"],
+    "room2": ["topic2.webm" , "topic2.mp4"],
+    "room3": ["topic3.webm" , "topic3.mp4"],
+    "room4": ["topic4.webm" , "topic4.mp4"],
+    "room5": ["DenThoBac.webm" , "DenThoBac.mp4"],
+    "room6": ["BacMienNam.webm" , "BacMienNam.mp4"],
+    "roomabout": ["BacMienNam.webm" , "BacMienNam.mp4"]
 }
 const srcVoidMC = {
-    "room1": `1111rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
+    "room0": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "room1": `lrem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
-    "room2": `2222222rem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
+    "room2": `lrem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
-    "room3": "/src/access/video/123.webm",
-    "room4": "/src/access/video/123.webm",
-    "room5": "/src/access/video/123.webm",
-    "room6": "/src/access/video/123.webm",
-    "roomabout": "/src/access/video/BacMienNam.webm"
+    "room3": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "room4": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "room5": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "room6": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "roomabout": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người."
 }
 
 export { dataJson , videoSrcs , srcVoidMC };
