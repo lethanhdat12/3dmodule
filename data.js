@@ -260,7 +260,7 @@ const dataJson = [
 ]
 
 const videoSrcs = {
-    "room0": ["BacMienNam.webm" , "BacMienNam.mp4"],
+    "room0": ["topic_0.webm" , "topic0.mp4"],
     "room1": ["topic1.webm" , "topic1.mp4"],
     "room2": ["topic2.webm" , "topic2.mp4"],
     "room3": ["topic3.webm" , "topic3.mp4"],
@@ -271,10 +271,8 @@ const videoSrcs = {
 }
 const srcVoidMC = {
     "room0": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
-    "room1": `lrem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
-    "room2": `lrem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim repellendus eaque obcaecati quam accusantium id, sunt quia sit dolor sequi fugit a quo error eveniet non ducimus ex harum.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores eos, reiciendis voluptatibus culpa quod nesciunt iure sunt ea perspiciatis at nisi sint! Rerum nam aliquam rem repellat autem voluptatibus nostrum?`,
+    "room1": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
+    "room2": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
     "room3": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
     "room4": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
     "room5": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người.",
