@@ -1,5 +1,4 @@
 import { $$, $ } from "./index.js";
-import ModuleLoader from "./SceneLoader.js";
 import { dataJson, videoSrcs, srcVoidMC } from "../../data.js";
 export default class MenuHandler {
     constructor(element) {
@@ -7,27 +6,27 @@ export default class MenuHandler {
         this.modulesAddScene = [];
         this.first = true;
         this.langguague = "vi";
-        this.initMenu();
+        // this.initMenu();
         this.handleMenuHeader();
-        this.handleClosePop();
+        // this.handleClosePop();
         this.handleMultiLanguague();
         this.handleMenuMc();
         this.handleMuteVolume();
-        this.moduleLoader = new ModuleLoader();
-        this.moduleLoader.createScene();
-        const moduleNames = dataJson.map((i) => i.name);
+        // this.moduleLoader = new ModuleLoader();
+        // this.moduleLoader.createScene();
+        // const moduleNames = dataJson.map((i) => i.name);
         this.muteState = true;
         this.mcState = true;
-        let i = 0;
-        let length = moduleNames.length;
-        let withMobile = window.innerWidth;
-        if (withMobile > 844) {
-            const timeInterval = setInterval(() => {
-                if (i === length - 1) clearInterval(timeInterval);
-                this.moduleLoader.loadModule(moduleNames[i]);
-                i++;
-            }, 5000)
-        }
+        // let i = 0;
+        // let length = moduleNames.length;
+        // let withMobile = window.innerWidth;
+        // if (withMobile > 844) {
+        //     const timeInterval = setInterval(() => {
+        //         if (i === length - 1) clearInterval(timeInterval);
+        //         this.moduleLoader.loadModule(moduleNames[i]);
+        //         i++;
+        //     }, 5000)
+        // }
         this.videoSrcs = { ...videoSrcs }
 
         this.srcVoidMC = { ...srcVoidMC }
@@ -51,7 +50,7 @@ export default class MenuHandler {
         })
     }
     handleErrorVideo(err) {
-        console.log("err play video => ", err);
+        console.trace("err play video => ", err);
     }
     handleClickItem(elm, evt) {
         this.menuHeader.forEach(i => i.classList.remove("active"));
@@ -93,13 +92,13 @@ export default class MenuHandler {
                 videomc.play().catch(err => this.handleErrorVideo(err));
             }
 
-            const about = $(".about");
+            // const about = $(".about");
             this.roomItems.forEach((i) => i.classList.add("hidden"))
             if (roomElm) {
                 roomElm.classList.add("show");
                 roomElm.classList.remove("hidden");
             }
-            about.classList.remove("show");
+            // about.classList.remove("show");
 
 
             // handle menu
@@ -124,7 +123,7 @@ export default class MenuHandler {
                     let moduleName = e.target.getAttribute("data-name");
                     if (moduleName) {
                         popup.classList.toggle("show");
-                        this.loadModule(moduleName);
+                        // this.loadModule(moduleName);
                         let desc = dataJson.find(i => i["name"] === moduleName)
                         if (desc && desc.detail) {
                             descContentPopup.innerText = desc.detail[this.langguague]["desc"];
@@ -156,22 +155,22 @@ export default class MenuHandler {
         })
     }
 
-    loadModule(moduleName) {
-        const scene = this.moduleLoader.scene;
-        let esxited = false;
-        scene.children.forEach(i => {
-            if (i.isObjectCustom) {
-                i.visible = false;
-            }
-            if (i.nameObject && i.nameObject === moduleName) {
-                i.visible = true;
-                esxited = true;
-            }
-        })
+    // loadModule(moduleName) {
+    //     const scene = this.moduleLoader.scene;
+    //     let esxited = false;
+    //     scene.children.forEach(i => {
+    //         if (i.isObjectCustom) {
+    //             i.visible = false;
+    //         }
+    //         if (i.nameObject && i.nameObject === moduleName) {
+    //             i.visible = true;
+    //             esxited = true;
+    //         }
+    //     })
 
-        if (esxited) return;
-        this.moduleLoader.loadModule(moduleName, true);
-    }
+    //     if (esxited) return;
+    //     this.moduleLoader.loadModule(moduleName, true);
+    // }
 
     handleClosePop() {
         const btnClose = $(".buttonClose");

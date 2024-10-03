@@ -280,4 +280,13 @@ const srcVoidMC = {
     "roomabout": "Bảo tàng Hồ Chí Minh thuộc loại lớn nhất Việt Nam với diện tích lên đến 18.000 m2, trưng bày khoảng 12 vạn hiện vật liên quan đến cuộc đời của Người."
 }
 
-export { dataJson , videoSrcs , srcVoidMC };
+const embedLink = {
+    "room1" : "https://mpembed.com/show/?m=BCD5hdXpP6Q&mpu=826",
+    "room2" : "https://mpembed.com/show/?m=RejxpnzHtUt&mpu=826",
+    "room3" : "https://mpembed.com/show/?m=SWL5f9ueHyz&mpu=826",
+    "room4" : "https://mpembed.com/show/?m=gDTVNLCaqqR&mpu=826",
+    "room5" : "https://mpembed.com/show/?m=EQaFW2fwgPU&mpu=826",
+    "room6" : "https://mpembed.com/show/?m=j1J9MEMbiiF&mpu=826",
+}
+
+export { dataJson , videoSrcs , srcVoidMC ,embedLink};
