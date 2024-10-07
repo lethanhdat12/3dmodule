@@ -638,6 +638,10 @@ img {
     display: flex;
 }
 
+.header-about{
+    cursor: pointer;
+}
+
 .header-about p {
     margin: 0;
     padding: 0;
@@ -655,6 +659,103 @@ img {
 
 .volume-icon.mute {
     color: red;
+}
+
+
+#about-us {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+#about-us.show {
+    display: flex;
+    background-color: rgb(128 128 128 / 50%);
+}
+
+#about-us .about-us_main {
+    width: 96%;
+    height: 90%;
+    position: relative;
+}
+
+#about-us .about-us_main .contentPopup {
+    box-shadow: 0px 0px 2px gray;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 40px 200px;
+    color: white;
+    background-color: var(--background-color);
+}
+
+#about-us .about-us_main .contentPopup .group{
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 30px;
+}
+#about-us .about-us_main .buttonClose {
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: white;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    z-index: 9;
+    background-image: url("../access/img/btnClose.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#about-us .about-us_main .content-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 60%;
+    margin: 0 auto;
+    height: calc(100% - 30px);
+}
+#about-us .about-us_main .content-column{
+    text-align: center;
+    width: calc(100% / 2 - 20px);
+    background: #fff;
+    padding: 16px;
+    border-radius: 16px;
+}
+#about-us .about-us_main .content-column p{
+    margin-bottom: 10px;
+    color: black;
+}
+
+#about-us .about-us_main .content-column img{
+    object-fit: cover;
+    width: 265px;
+    height: auto;
+    max-width: 100%;
+}
+
+@media screen and (max-width : 1264px) {
+    #about-us .about-us_main .content-row{
+        width: 100%;
+    }  
 }
 
 @media screen and (max-width : 844px) {
@@ -691,6 +792,10 @@ img {
     #popup .popupmain .contentPopup {
         padding: 40px 100px 10px 100px;
     }
+
+    #about-us .about-us_main .contentPopup{
+        padding: 40px 10px 40px 10px;
+    }
 }
 
 @media screen and (max-width : 480px) {
@@ -704,5 +809,11 @@ img {
 
     #popup .popupmain .contentPopup {
         padding: 40px 10px 10px 10px;
+    }
+    #about-us .about-us_main .content-column{
+        width: 100%;
+    }
+    #about-us .about-us_main .content-row{
+        gap: 10px;
     }
 }

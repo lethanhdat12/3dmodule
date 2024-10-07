@@ -31,4 +31,22 @@ window.onload = function () {
         const nav1Active = document.querySelector(".nav-item.active");
         nav1Active.click();
     }, false)
+
+    handleClickAbout();
+}
+
+
+function handleClickAbout(){
+    const aboutElm = document.querySelector(".header-about");
+    const aboutUs = document.querySelector("#about-us");
+    const buttonClose = document.querySelector("#about-us .buttonClose");
+
+
+    aboutElm.addEventListener("click" , ()=> {
+        aboutUs.classList.add("show");
+    })
+
+    buttonClose.addEventListener("click" , ()=>{
+        aboutUs.classList.remove("show");
+    })
 }
