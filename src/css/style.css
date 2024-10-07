@@ -683,7 +683,7 @@ img {
 
 #about-us .about-us_main {
     width: 96%;
-    height: 90%;
+    height: 96%;
     position: relative;
 }
 
@@ -725,14 +725,34 @@ img {
 #about-us .about-us_main .content-row{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
     overflow: auto;
     width: 60%;
     margin: 0 auto;
     height: calc(100% - 30px);
+    gap : 20px;
 }
+
+/* width */
+#about-us .about-us_main .content-row::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+#about-us .about-us_main .content-row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+#about-us .about-us_main .content-row::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+#about-us .about-us_main .content-row::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 #about-us .about-us_main .content-column{
     text-align: center;
     width: calc(100% / 2 - 20px);
@@ -747,7 +767,7 @@ img {
 
 #about-us .about-us_main .content-column img{
     object-fit: cover;
-    width: 265px;
+    width: 200px;
     height: auto;
     max-width: 100%;
 }
@@ -756,6 +776,12 @@ img {
     #about-us .about-us_main .content-row{
         width: 100%;
     }  
+    #about-us .about-us_main .content-column img{
+        width: 180px;
+    }
+    #about-us .about-us_main .content-row{
+        gap:10px;
+    }
 }
 
 @media screen and (max-width : 844px) {
@@ -811,7 +837,7 @@ img {
         padding: 40px 10px 10px 10px;
     }
     #about-us .about-us_main .content-column{
-        width: 100%;
+        width: 80%;
     }
     #about-us .about-us_main .content-row{
         gap: 10px;
