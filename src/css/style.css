@@ -194,7 +194,7 @@ img {
     position: relative;
     color: white;
     z-index: 1;
-    height: 180px;
+    height: 300px;  /*chỉnh tivi*/
     overflow: hidden;
     font-size: 12px;
     padding: 20px 12px 12px 12px;
