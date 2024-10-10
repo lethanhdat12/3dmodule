@@ -37,7 +37,7 @@ window.onload = function () {
 
 
 function handleClickAbout(){
-    const aboutElm = document.querySelector(".header-about");
+    const aboutElm = document.querySelector(".footer-about");
     const aboutUs = document.querySelector("#about-us");
     const buttonClose = document.querySelector("#about-us .buttonClose");
 

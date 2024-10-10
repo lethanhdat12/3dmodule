@@ -2,7 +2,8 @@
     --background-color: #504f33;
     --header-height: 36px;
     --bottom-height: 140px;
-    --width-popup-right: 200px
+    --width-popup-right: 200px;
+    --height-mc : 280px;
 }
 
 html,
@@ -183,23 +184,29 @@ img {
 }
 
 #video-mc {
-    height: 230px;
+    height: var(--height-mc);
     bottom: var(--bottom-height);
-    right: 50%;
-    position: absolute;
-    transform: translateX(50%);
+    z-index: 1;
 }
-
+.mcRead{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 .content-mc-read {
     position: relative;
     color: white;
     z-index: 1;
-    height: 180px;
+    height: 120px;
     overflow: hidden;
     font-size: 12px;
     padding: 20px 12px 12px 12px;
     font-weight: bold;
-    overflow-y: scroll;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(100% - var(--height-mc));
 }
 
 /* width */
@@ -309,11 +316,13 @@ img {
 #menu-right {
     position: fixed;
     left: 100%;
-    bottom: 0;
+    bottom: var(--bottom-height);
+    top: var(--header-height);
     min-width: var(--width-popup-right);
+    width:  var(--width-popup-right);
     transition: 0.15s ease all;
     transform: translateX(-100%);
-    height: calc(100% - var(--header-height) + 10px);
+    height: calc(100% - var(--header-height) - var(--bottom-height)  + 10px);
 }
 
 #menu-right .arrow-open {
@@ -607,7 +616,7 @@ img {
     gap: 20px;
     padding-right: 20px;
     color: white;
-    width: calc(100% - 200px);
+    width: calc(100%);
 }
 
 .header-main h1 {
@@ -652,7 +661,25 @@ img {
     width: calc(var(--width-popup-right) - 20px);
     text-align: center;
 }
-
+.footer-about{
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    transform: translateY(-150%);
+}
+.footer-about p {
+    margin: 0;
+    padding: 0;
+    text-wrap: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: calc(var(--width-popup-right) - 20px);
+    text-align: center;
+    color: white;
+}
 .volume-icon {
     color: white;
 }
@@ -762,7 +789,9 @@ img {
     :root {
         --bottom-height: 80px;
     }
-
+    .header-about{
+        display: none;
+    }
     .header-main h1 {
         display: none;
     }
